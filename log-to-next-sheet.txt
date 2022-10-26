@@ -1,0 +1,9 @@
+function copyData() {
+const ss = SpreadsheetApp.getActive();
+const sourceSheet = ss.getSheetByName('Create URL Parameters');
+const val = ["D3", "D5", "D7", "D9", "D11", "D13", "D15"].map(r => sourceSheet.getRange(r).getValues()).flat();
+val.push(sourceSheet.getRange('A2:H2').getValues().filter(String).join(", "));
+val.unshift(new Date());
+const targetSheet = ss.getSheetByName('URL Log')
+targetSheet.getRange(targetSheet.getLastRow()+1, 2, 1, val.length ).setValues([val])
+}
