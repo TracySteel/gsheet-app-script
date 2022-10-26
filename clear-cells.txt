@@ -1,0 +1,3 @@
+function ClearCells() {
+ var sheet = SpreadsheetApp.getActive().getSheetByName('Create URL Parameters');
+ sheet.getRange('D3:D13').clearContent();}
